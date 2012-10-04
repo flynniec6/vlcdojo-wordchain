@@ -25,11 +25,17 @@ Chainer.prototype.isValid = function(){
 };
 
 Chainer.prototype.isOKDictionary = function() {
-	var areInDictionary = (this._inDictionary(this._initialWord))&&(this._inDictionary(this._finalWord));
+	var areInDictionary = (this._inDictionary(this._initialWord)) && (this._inDictionary(this._finalWord));
 	return areInDictionary;
 };
 
-Chainer.prototype.isDone = function(){
+Chainer.prototype.isDone = function() {
 	var endChain = (this._initialWord === this._finalWord);
 	return endChain;
+};
+
+Chainer.prototype.candidates = function() {
+	var mutator = new Mutator(this._initialWord);
+	var cand = mutator.candidates();
+	return cand;
 };

@@ -20,13 +20,18 @@ describe("Chainer", function() {
 
 	it("checks that initial and final word are in the dictionary", function() {	 
 		dict = ["abcde","abcdef","bcda","abcd"];
+		
 		var chainer = new Chainer("abcde","abcdef");
 		expect(chainer.isOKDictionary()).toBeTruthy();
 		var chainer = new Chainer("ijekf","Adfefd");
 		expect(chainer.isOKDictionary()).toBeFalsy();
+		var chainer = new Chainer("abcde","Adfefd");
+		expect(chainer.isOKDictionary()).toBeFalsy();
+		var chainer = new Chainer("ijekf","abcde");
+		expect(chainer.isOKDictionary()).toBeFalsy();
 	});
 
-	describe("having valid words", function() {
+	describe("having valid starting words", function() {
 		var chainer;
 		
 		beforeEach(function() {
@@ -39,7 +44,20 @@ describe("Chainer", function() {
 		});
 		
 		it("finds next step candidates", function() {
-			mutator = new Mutator("love", "hate");
+			var chainer = new Chainer ("love", "hate");
+			expect(chainer.candidates().length).toEqual(3);
+			expect(chainer.candidates()).toContain("live");
+			expect(chainer.candidates()).toContain("dove");
+			expect(chainer.candidates()).toContain("cove");
+		});
+		
+		describe("with a group of candidate words", function() {
+			beforeEach(function() {
+				dict = ["love","cove","dove","live", "dive"];
+				cand = ["live", "dove", "cove"];
+			});
+
+		
 		});
 		
 	});

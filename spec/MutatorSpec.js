@@ -33,7 +33,7 @@ describe("Mutator", function() {
 			expect(mutator.candidates()).toContain("cove");
 		});
 		
-		it("finds candidates not matching initial parameters", function(){
+		it("finds candidates not matching initial parameter", function(){
 			dict=["love","hate","move","moves","cove"];
 			var mutator= new Mutator("love");
 			expect(mutator.candidates()).not.toContain("love");
