@@ -16,18 +16,10 @@ Mutator.prototype.isValid = function(){
 
 	var sameLength=(this._finalWord.length == this._initialWord.length);
 	var notEqual=!(this._finalWord === this._initialWord);
-	var areInDictionary=(this._inDictionary(this._initialWord))&&(this._inDictionary(this._finalWord));
 
-	return sameLength && notEqual && areInDictionary;
+	return sameLength && notEqual;
 };
 
-Mutator.prototype._inDictionary = function(word){
-	var result=false;
-	for (var i = 0 ; i < dict.length ; i++) {
-		if (dict[i]===word) result=true;
-	};
-	return result;
-};
 
 Mutator.prototype.candidates = function(){
 	var candidates = [];

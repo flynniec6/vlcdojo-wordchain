@@ -26,14 +26,6 @@ describe("Mutator", function() {
 		expect(mutator.isValid()).toBeTruthy();
 	});
 	
-	it("checks that initial and final word are in the dictionary", function() {  
-		dict=["love","hate"];
-		var mutator= new Mutator("love","hate");
-		expect(mutator.isValid()).toBeTruthy();
-		mutator= new Mutator("lovz","hatz");
-		expect(mutator.isValid()).toBeFalsy();
-	});
-
 	describe("having init conditions OK", function() {
 
 		it("finds candidates of same length", function(){
