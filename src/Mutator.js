@@ -1,25 +1,34 @@
-function Mutator(initial,final) {
- this._initialWord=initial;
- this._finalWord=final;
- this._currentStep=initial;
+function Mutator(seed) {
+ this._initialWord = seed.toLowerCase();
+ this._finalWord = seed;
+ this._currentStep = seed;
+ this._workLength = seed.length;
 }
 
 Mutator.prototype.initialWord = function() {
 	return this._initialWord;
 };
 
-Mutator.prototype.finalWord = function(){
+Mutator.prototype.finalWord = function() {
 	return this._finalWord;
 };
 
-Mutator.prototype.isValid = function(){
-
-	var sameLength=(this._finalWord.length == this._initialWord.length);
-	var notEqual=!(this._finalWord === this._initialWord);
-
-	return sameLength && notEqual;
+Mutator.prototype.workLength = function() {
+	return this._workLength;
 };
 
+Mutator.prototype.isValid = function() {
+	var result = false;
+	
+	for (var i = 0 ; i < dict.length ; i++) {
+		x = dict[i].toLowerCase();
+		if (this._initialWord == x)
+			result = true;
+	};
+	
+	return result;
+
+};
 
 Mutator.prototype.candidates = function(){
 	var candidates = [];

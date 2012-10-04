@@ -4,33 +4,30 @@ describe("Mutator", function() {
 	beforeEach(function() {
 	});
 	
-	it("knows initial and final word", function() {
-		mutator = new Mutator("initialWord","finalWord");
-		expect(mutator.initialWord()).toEqual("initialWord");
-		expect(mutator.finalWord()).toEqual("finalWord");
+	it("knows initial word", function() {
+		mutator = new Mutator("initialWord");
+		expect(mutator.initialWord()).toEqual("initialword");
 	});
 	
-	it("checks that initial and final word are same length", function() {	 
+	it("stores word length", function() {	 
 		dict=["abcde","abcdef","bcda","abcd"];
-		var mutator= new Mutator("abcde","abcdef");
-		expect(mutator.isValid()).toBeFalsy();
-		mutator= new Mutator("abcd","bcda");
-		expect(mutator.isValid()).toBeTruthy();
+		var mutator= new Mutator("abcde");
+		expect(mutator.workLength()).toEqual(5);
 	});
 	
-	it("checks that initial and final word aren't the same word", function() {  
-		dict=["aBord","aWord"];
-		var mutator= new Mutator("aWord","aWord");
-		expect(mutator.isValid()).toBeFalsy();
-		mutator= new Mutator("aWord","aBord");
+	it("checks that initial word is in the dictionary", function() {  
+		dict = ["aBord","aWord"];
+		var mutator= new Mutator("aWord");
 		expect(mutator.isValid()).toBeTruthy();
+		var mutator= new Mutator("bWord");
+		expect(mutator.isValid()).toBeFalsy();
 	});
 	
 	describe("having init conditions OK", function() {
 
 		it("finds candidates of same length", function(){
 			dict=["love","hate","move","moves","cove"];
-			var mutator= new Mutator("love","hate");
+			var mutator= new Mutator("love");
 			expect(mutator.candidates().length).toEqual(2);
 			expect(mutator.candidates()).toContain("move");
 			expect(mutator.candidates()).toContain("cove");
@@ -38,28 +35,16 @@ describe("Mutator", function() {
 		
 		it("finds candidates not matching initial parameters", function(){
 			dict=["love","hate","move","moves","cove"];
-			var mutator= new Mutator("love","hate");
+			var mutator= new Mutator("love");
 			expect(mutator.candidates()).not.toContain("love");
 			expect(mutator.candidates()).not.toContain("hate");
 		});
 		
 		it("finds candidates different by one letter", function(){
 			dict=["love","hate","move","moves","cove", "cave"];
-			var mutator= new Mutator("love","hate");
+			var mutator= new Mutator("love");
 			expect(mutator.candidates()).not.toContain("cave");
 		});
 		
-		describe("given a step word", function() {
-
-			it("uses the step word supplied to find new candidates", function(){
-				dict=["love","hate","move","moves","cove", "cave"];
-				var mutator= new Mutator("love","hate");
-				mutator.setStep("cove");
-				expect(mutator.candidates()).not.toContain("cove");
-				expect(mutator.candidates()).toContain("cave");
-			});
-			
-		});	// given a step word
-
 	});	// init conditions OK
 });
