@@ -38,6 +38,19 @@ describe("Chainer", function() {
 			dict = ["love","cove","dove","live", "dive"];
 		});
 		
+		it("stores the start of the chain", function() {
+			chainer = new Chainer("love","hate");
+			expect(chainer.getChain()[0]).toEqual("love");
+		});
+		
+		it("recognises no solution possible", function() {
+			chainer = new Chainer("stupid", "tables");
+			mt = [];
+			expect(chainer.getChain().length).toEqual(2);
+			expect(chainer.getChain()[1]).toEqual(mt);
+			expect(chainer.isImpossible()).toBeTruthy();
+		});
+		
 		it("marks end of chain", function() {
 			chainer = new Chainer("initialWord","initialWord");
 			expect(chainer.isDone()).toBeTruthy();

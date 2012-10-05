@@ -70,8 +70,12 @@ function chainWords(start, end) {
 		return;
 	}
 
-	$('#chainResults').html('<pre>' + dump(chainer.candidates()) + '</pre>');
+	if (chainer.isImpossible()) {
+		$('#chainResults').html('<p>' + 'No chain possible' + '</p>');
+		return;
+	}
 
+	$('#chainResults').html('<p>' + dump(chainer.getChain()) + '</p>');
 }
 
 function dump(obj) {

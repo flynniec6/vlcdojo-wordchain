@@ -1,6 +1,7 @@
 function Chainer(initial,final) {
- this._initialWord=initial;
- this._finalWord=final;
+ this._initialWord = initial;
+ this._finalWord = final;
+ this._isImpossible = false;
 }
 
 Chainer.prototype.initialWord = function() {
@@ -9,6 +10,10 @@ Chainer.prototype.initialWord = function() {
 
 Chainer.prototype.finalWord = function(){
 	return this._finalWord;
+};
+
+Chainer.prototype.isImpossible = function(){
+	return this._isImpossible;
 };
 
 Chainer.prototype._inDictionary = function(word){
@@ -39,3 +44,16 @@ Chainer.prototype.candidates = function() {
 	var cand = mutator.candidates();
 	return cand;
 };
+
+Chainer.prototype.getChain = function() {
+	var mutator = new Mutator(this._initialWord);
+	var chain = [];
+
+	chain.push(this._initialWord);
+	var cand = mutator.candidates();
+	
+	this._isImpossible = (cand.length == 0);
+	chain.push(cand);
+	return chain;
+};
+
