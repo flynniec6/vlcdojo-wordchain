@@ -72,29 +72,29 @@
     <div class="twelve columns" role="content">
 
       <article>
-
         <h3>Word Chainer</h3>
-        <h6>From the Coding Dojo in Valencia.</h6>
-
+	
         <div class="row">
+
           <div class="eight columns">
-
-
+        <h6>From the Coding Dojo in Valencia.</h6>
 			<form>
 			  <div class="row">
 				<div class="two mobile-one columns">
 				  <label class="right inline">Start word:</label>
 				</div>
-				<div class="ten mobile-three columns">
+				<div class="ten mobile-three columns" id="dStartWord">
 				  <input type="text" class="eight" id="iStartWord" />
+				  <small id="mStartWord"></small>
 				</div>
 			  </div>
 			  <div class="row">
 				<div class="two mobile-one columns">
 				  <label class="right inline">End word:</label>
 				</div>
-				<div class="ten mobile-three columns">
+				<div class="ten mobile-three columns" id="dEndWord">
 				  <input type="text" class="eight" id="iEndWord" />
+				  <small id="mEndWord"></small>
 				</div>
 			  </div>
 			  <div class="row">
@@ -117,7 +117,15 @@
       </article>
 
       <hr />
+      <article>
 
+        <h4>Results</h4>
+
+        <div class="row">
+        <div class="eight columns" id="chainResults">
+        </div>
+		</div>
+	</article>
 
     </div>
 
