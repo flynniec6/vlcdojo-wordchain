@@ -58,6 +58,27 @@ function checkInputs() {
 }
 
 function chainWords(start, end) {
-	$('#chainResults').html('<p>Some results appear here.');
+	var chainer = new Chainer(start, end);
+
+	if (!chainer.isValid()) { 
+		$('#chainResults').html('<p>Says the words are not valid.</p>'); 
+		return;
+	}
+
+	if (!chainer.isOKDictionary()) { 
+		$('#chainResults').html('<p>Says the words are not in the dictionary.</p>'); 
+		return;
+	}
+
+	$('#chainResults').html('<pre>' + dump(chainer.candidates()) + '</pre>');
+
+}
+
+function dump(obj) {
+    var out = '';
+    for (var i in obj) {
+        out = out + i + ": " + obj[i] + "\n";
+    }
+	return(out);
 }
 
