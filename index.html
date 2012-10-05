@@ -1,9 +1,151 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-    <head>
-        <title>Word Chains</title>
-        <meta http-equiv="REFRESH" content="0;url=SpecRunner.html"></HEAD>
-    <BODY>
-        Run jasmine test on entry.
-    </BODY>
-</HTML>
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Word Chainer</title>
+  
+  <!-- Included CSS Files (Uncompressed) -->
+  <!--
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+  -->
+  
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="stylesheets/app.css">
+
+  <script src="javascripts/modernizr.foundation.js"></script>
+  
+  <script src="js/zepto.min.js"></script>
+  <script src="js/wordchain.js"></script>
+  
+  <script src="src/Mutator.js"></script>
+  <script src="src/Chainer.js"></script>
+  
+  <style>
+  .jasmine { background-color: #5e7d00; }
+  </style>
+  
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+
+
+<!-- Nav Bar -->
+
+  <div class="row">
+    <div class="twelve columns">
+      <ul class="nav-bar right">
+        <li class="jasmine"><a href="SpecRunner.html">Unit Tests</a></li>
+      </ul>
+      <ul class="nav-bar">
+        <li><a href="http://codingdojo.org/">Coding Dojo</a></li>
+        <li><a href="http://www.becodemyfriend.com/2012/09/coding-dojo-en-becode-el-25-de-septiembre/">VLC Coding Dojo</a></li>
+        <li><a href="http://codekata.pragprog.com/2007/01/kata_nineteen_w.html">Kata 19 - Word Chains</a></li>
+      </ul>
+
+      <h1>Word Chainer <small>It chains words. It's awesome.</small>
+      <hr />
+    </div>
+  </div>
+
+  <!-- End Nav -->
+
+
+  <!-- Main Page Content and Sidebar -->
+
+  <div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="twelve columns" role="content">
+
+      <article>
+
+        <h3>Word Chainer</h3>
+        <h6>From the Coding Dojo in Valencia.</h6>
+
+        <div class="row">
+          <div class="eight columns">
+
+
+			<form>
+			  <div class="row">
+				<div class="two mobile-one columns">
+				  <label class="right inline">Start word:</label>
+				</div>
+				<div class="ten mobile-three columns">
+				  <input type="text" class="eight" id="iStartWord" />
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="two mobile-one columns">
+				  <label class="right inline">End word:</label>
+				</div>
+				<div class="ten mobile-three columns">
+				  <input type="text" class="eight" id="iEndWord" />
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="two mobile-one columns">
+				</div>
+				<div class="ten mobile-three columns">
+				  <a href="#" class="round medium button" id="iChainButton">Chain!</a>
+				</div>
+			  </div>
+			</form>
+
+
+
+          </div>
+          <div class="four columns">
+            <img src="images/chain.png" />
+          </div>
+        </div>
+
+      </article>
+
+      <hr />
+
+
+    </div>
+
+    <!-- End Main Content -->
+
+
+  </div>
+
+  <!-- End Main Content and Sidebar -->
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="twelve columns">
+      <hr />
+      <div class="row">
+        <div class="six columns">
+          <p>&copy; Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="six columns">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- End Footer -->
+
+
+</body>
+</html>
