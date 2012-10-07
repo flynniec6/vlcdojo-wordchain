@@ -75,7 +75,7 @@ function chainWords(start, end) {
 		return;
 	}
 
-	$('#chainResults').html('<p>' + dump(chainer.getChain()) + '</p>');
+	$('#blist').html('<p>' + dump(chainer.getChain()) + '</p>');
 }
 
 function dump(obj) {
